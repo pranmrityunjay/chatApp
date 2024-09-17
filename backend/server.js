@@ -8,9 +8,7 @@ const app = express()
 const PORT = process.env.PORT || 5000
 
 dotenv.config();
-// app.get("/", (rew, res)=>{
-//     res.send("hello")
-// })
+
 app.use(cookieParser())
 app.use(express.json())
 app.use("/api/auth", authRoutes)

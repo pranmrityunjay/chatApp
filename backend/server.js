@@ -14,6 +14,13 @@ dotenv.config();
 
 app.use(cookieParser())
 app.use(express.json())
+// In your backend server (Node.js/Express example)
+// app.post('/api/auth/signup', (req, res) => {
+//     // Your signup logic here
+    
+//     res.send({ message: 'User signed up successfully' });
+//   });
+  
 app.use("/api/auth", authRoutes)
 app.use("/api/messages", messageRoutes)
 app.use("/api/users", userRoutes)
@@ -22,5 +29,5 @@ app.get("/", (req, res)=>{
 })
 app.listen(PORT, ()=>{
     connectToMongoose();
-    console.log("Server is running on PORT",PORT)
+    console.log("Server is running on PORT",PORT, process.env.MONGO_DB_URI)
 })

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useAuthContext } from "../context/AuthContext.jsx";
+import { useAuthContext } from "../context/AuthContext";
 
 const useLogin = () => {
 	const [loading, setLoading] = useState(false);
@@ -11,7 +11,7 @@ const useLogin = () => {
 		if (!success) return;
 		setLoading(true);
 		try {
-			const res = await fetch("https://chatapp-w4bu.onrender.com/api/auth/login", {
+			const res = await fetch("/api/auth/login", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ username, password }),
